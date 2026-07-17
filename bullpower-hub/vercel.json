@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    {"src": "*.html", "use": "@vercel/static"},
+    {"src": "*.xml", "use": "@vercel/static"},
+    {"src": "*.txt", "use": "@vercel/static"},
+    {"src": "bullpower2026indexnow", "use": "@vercel/static"}
+  ],
+  "routes": [
+    {"src": "/datenschutz/?", "dest": "/privacy.html"},
+    {"src": "/privacy/?", "dest": "/privacy.html"},
+    {"src": "/(.*)", "dest": "/$1"}
+  ]
+}
