@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SteuercockPit PRO — KI-Steuerberater für Selbstständige & GmbH — automatische Buchführung & Optimierung</title>
+<meta name="description" content="KI-Steuerberater für Selbstständige & GmbH — automatische Buchführung & Optimierung · Deine Buchhaltung läuft automatisch — KI spart dir Steuern.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#060809;color:#D8E4F0;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+h1{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;letter-spacing:-1.5px;line-height:1.08;text-wrap:balance}
+h2{font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.8px;text-wrap:balance}
+h3{font-size:1.1rem;font-weight:700}
+p{color:#8A9EB4;line-height:1.7}
+.w{max-width:900px;margin:0 auto;padding:0 24px}
+.ww{max-width:1100px;margin:0 auto;padding:0 24px}
+s{padding:72px 0}
+/* topbar */
+.tb{background:rgba(240,165,0,.08);border-bottom:1px solid rgba(240,165,0,.15);padding:10px 0;text-align:center;font-size:13px;color:#F0A500;font-weight:600;letter-spacing:.5px}
+.tb b{color:#fff}
+/* hero */
+.hero{padding:72px 0 56px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(240,165,0,.05) 0%,transparent 70%);pointer-events:none}
+.ey{display:inline-flex;align-items:center;gap:8px;background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.25);border-radius:20px;padding:5px 16px;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#F0A500;margin-bottom:20px}
+.ey-d{width:6px;height:6px;background:#F0A500;border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1 em{color:#F0A500;font-style:normal}
+.hsub{font-size:clamp(1rem,2.5vw,1.15rem);color:#6E8A9E;max-width:620px;margin:16px auto 36px;line-height:1.7}
+.hcta{display:flex;flex-direction:column;align-items:center;gap:10px}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:#F0A500;color:#000;font-weight:800;font-size:17px;padding:18px 36px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(240,165,0,.3)}
+.hg{font-size:12px;color:#506070}
+/* stats */
+.sstrip{background:#0C0F12;border-top:1px solid #1E262E;border-bottom:1px solid #1E262E;padding:18px 0}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1E262E}
+.st{background:#0C0F12;padding:18px 22px;text-align:center}
+.sn{font-size:1.9rem;font-weight:900;letter-spacing:-1px;color:#F0A500;font-variant-numeric:tabular-nums}
+.sl{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:#506070;margin-top:3px}
+/* labels */
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#506070;margin-bottom:10px;font-weight:700}
+.div{width:40px;height:3px;background:#F0A500;border-radius:2px;margin:14px 0 28px}
+/* pain */
+.pain{background:#0C0F12}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+.pc{background:rgba(255,59,80,.05);border:1px solid rgba(255,59,80,.15);border-radius:12px;padding:20px 22px}
+.pi{font-size:22px;margin-bottom:8px}
+.pc h3{color:#E87080;margin-bottom:6px}
+.pc p{font-size:14px;color:#7A5060}
+/* demo terminal */
+.term{background:#060A08;border:1px solid #1A2A1E;border-radius:14px;overflow:hidden;max-width:780px;margin:36px auto 0;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.tbar{background:#0D1410;border-bottom:1px solid #1A2A1E;padding:11px 18px;display:flex;align-items:center;gap:8px}
+.td{width:12px;height:12px;border-radius:50%}.tr{background:#FF5F57}.ty{background:#FFBD2E}.tg{background:#28C840}
+.tt{flex:1;text-align:center;font-size:11px;color:#3A5040;font-family:monospace;letter-spacing:.5px}
+.tbody{padding:22px 26px;font-family:'SF Mono','Fira Code','Courier New',monospace;font-size:13px;line-height:1.8}
+.tl{display:flex;gap:10px;margin-bottom:2px}
+.tp{color:#2A6040;flex-shrink:0}
+.tc{color:#70D090}
+.to{color:#406050;padding-left:22px}
+.tok{color:#00D47E}
+.cur{display:inline-block;width:8px;height:14px;background:#00D47E;animation:cur 1s infinite;vertical-align:middle;margin-left:4px}
+@keyframes cur{0%,100%{opacity:1}50%{opacity:0}}
+/* features */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+.fb{background:#111418;border:1px solid #1E262E;border-radius:14px;padding:22px 24px}
+.fi{font-size:18px}
+.fb h3{color:#D8E4F0;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+/* bonuses */
+.bsec{background:#0C0F12}
+.btot{background:rgba(240,165,0,.06);border:1px solid rgba(240,165,0,.2);border-radius:14px;padding:22px 26px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.btl{font-size:13px;color:#506070}
+.btn{font-size:2.2rem;font-weight:900;color:#F0A500;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bc{background:#111418;border:1px solid #1E262E;border-radius:12px;padding:18px 20px;display:flex;gap:14px}
+.bn{width:34px;height:34px;background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#F0A500;flex-shrink:0}
+.bco h3{font-size:13px;color:#D8E4F0;margin-bottom:3px}
+.bco p{font-size:12px;color:#506070}
+.bv{font-size:12px;font-weight:700;color:#F0A500;margin-top:5px;font-variant-numeric:tabular-nums}
+/* pricing */
+.price-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:36px}
+.price-card{background:#111418;border:1px solid #1E262E;border-radius:16px;padding:26px 22px;position:relative}
+.price-card.featured{background:rgba(240,165,0,.04);border-color:rgba(240,165,0,.3)}
+.fbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#F0A500;color:#000;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;white-space:nowrap;letter-spacing:.5px}
+.pt{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#506070;font-weight:700;margin-bottom:8px}
+.pname{font-size:1.1rem;font-weight:800;margin-bottom:12px}
+.pold{text-decoration:line-through;color:#506070;font-size:12px;margin-bottom:3px}
+.pamt{font-size:2.6rem;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;color:#F0A500;line-height:1}
+.pper{font-size:12px;color:#506070;margin:5px 0 16px}
+.pfeats{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.pf{display:flex;align-items:center;gap:7px;font-size:13px;color:#7A90A8}
+.pfy{color:#00D47E}.pfn{color:#2A3A48}
+.btn-tier{display:block;text-align:center;padding:13px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:opacity .15s}
+.btn-gold{background:#F0A500;color:#000}.btn-outline{border:1px solid #28343E;color:#506070}
+.btn-tier:hover{opacity:.85}
+/* guarantee */
+.guar{background:#111418;border:1px solid #1E262E;border-radius:20px;padding:44px;max-width:680px;margin:0 auto;text-align:center}
+.gi{font-size:44px;margin-bottom:14px}
+/* faq */
+.flist{display:flex;flex-direction:column;gap:10px;margin-top:36px;max-width:680px;margin-left:auto;margin-right:auto}
+.fi{background:#111418;border:1px solid #1E262E;border-radius:12px;overflow:hidden}
+.fq{padding:17px 20px;font-size:14px;font-weight:600;color:#D8E4F0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;user-select:none}
+.fq:hover{background:#181D22}
+.fa{font-size:11px;color:#506070;transition:transform .2s;flex-shrink:0}
+.fi.open .fa{transform:rotate(180deg)}
+.fan{padding:0 20px 16px;font-size:13px;color:#6A80A0;line-height:1.7;display:none}
+.fi.open .fan{display:block}
+/* final cta */
+.fcta{background:linear-gradient(135deg,#0A0C08 0%,#060809 100%);border-top:1px solid #1E262E;padding:72px 0;text-align:center}
+.fcta h2{color:#F0A500;margin-bottom:14px}
+.fcta p{font-size:17px;color:#6E8A9E;max-width:500px;margin:0 auto 32px}
+footer{background:#0C0F12;border-top:1px solid #1E262E;padding:22px 0;text-align:center;font-size:12px;color:#2A3A48}
+footer a{color:#506070;text-decoration:none}
+@media(max-width:768px){
+  .sg,.pg,.fg,.bg,.price-grid{grid-template-columns:1fr}
+  .btot{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="tb">🔥 Early-Bird Preis — <b>Jetzt €49/mo oder €297 einmalig statt €149 lifetime</b></div>
+
+<section class="hero">
+<div class="w">
+  <div class="ey"><div class="ey-d"></div>STEUER · KI · BUCHHALTUNG · SELBSTSTÄNDIGE</div>
+  <h1>Deine Buchhaltung läuft <em>automatisch</em> — KI spart dir Steuern.</h1>
+  <p class="hsub">KI-Steuerberater für Selbstständige & GmbH — automatische Buchführung & Optimierung</p>
+  <div class="hcta">
+    <a href="https://buy.stripe.com/7sY5kFbrIemmcYU0Oi4F20o" class="btn-p">JETZT STARTEN — €49/mo oder €297 einmalig <span>→</span></a>
+    <div class="hg">🔒 30-Tage Geld-zurück · Sofort-Zugang nach Kauf</div>
+  </div>
+</div>
+</section>
+
+<div class="sstrip">
+<div class="ww"><div class="sg"><div class="st"><div class="sn">Ø 23%</div><div class="sl">Steuer gespart</div></div><div class="st"><div class="sn">100%</div><div class="sl">Automatisiert</div></div><div class="st"><div class="sn">0 Min</div><div class="sl">Dein Aufwand</div></div><div class="st"><div class="sn">€0</div><div class="sl">Steuerberater-Kosten</div></div></div></div>
+</div>
+
+<section class="pain s">
+<div class="w">
+  <div class="lbl">Das Problem</div>
+  <h2>Warum du bisher nicht die Ergebnisse bekommst die du willst.</h2>
+  <div class="pg"><div class="pc">
+      <div class="pi">😩</div>
+      <h3>Steuerpanik</h3>
+      <p>Einkommensteuer, USt., GewSt. — kompliziert, zeitraubend, teuer.</p>
+    </div><div class="pc">
+      <div class="pi">💸</div>
+      <h3>Steuerberater unbezahlbar</h3>
+      <p>€150–400/h für Beratung. SteuercockPit macht es für €49/mo.</p>
+    </div><div class="pc">
+      <div class="pi">📉</div>
+      <h3>Steuern verschenkt</h3>
+      <p>Ohne Optimierung zahlst du zu viel. KI findet jeden legalen Abzug.</p>
+    </div><div class="pc">
+      <div class="pi">😤</div>
+      <h3>Belege-Chaos</h3>
+      <p>Hunderte Belege, Kontoauszüge, Rechnungen — vollautomatisch kategorisiert.</p>
+    </div></div>
+</div>
+</section>
+
+<section class="s" style="background:#0A0C08">
+<div class="w">
+  <div class="lbl">Live Demo</div>
+  <h2>Das System in Aktion — <em style="color:#00D47E">gerade jetzt.</em></h2>
+  <div class="term">
+    <div class="tbar">
+      <div class="td tr"></div><div class="td ty"></div><div class="td tg"></div>
+      <div class="tt">steuercockpit_pro · live · all systems running</div>
+    </div>
+    <div class="tbody">
+      <div class="tl">
+      <span class="tp">$</span>
+      <span class="tc">supermegabot.run(buchhaltung)</span>
+    </div>
+    <div class="to"><span class="tok">✓</span> Buchführung: 134 Transaktionen kategorisiert · USt-Voranmeldung vorbereitet · 0 Fehler</div><div class="tl">
+      <span class="tp">$</span>
+      <span class="tc">supermegabot.run(optimierung)</span>
+    </div>
+    <div class="to"><span class="tok">✓</span> Steueroptimierung: Abzüge identifiziert: €2.340 (Arbeitszimmer, Hardware, Reisekosten)</div><div class="tl">
+      <span class="tp">$</span>
+      <span class="tc">supermegabot.run(umsatzsteuer)</span>
+    </div>
+    <div class="to"><span class="tok">✓</span> USt-Assistent: Q2 Voranmeldung fertig · Zahllast: €1.240 · ELSTER-Export bereit</div><div class="tl">
+      <span class="tp">$</span>
+      <span class="tc">supermegabot.run(report)</span>
+    </div>
+    <div class="to"><span class="tok">✓</span> Jahresübersicht: Gewinn: €34.200 · Steuerlast geschätzt: €8.100 · Sparpotenzial: €1.900</div>
+      <div class="tl" style="margin-top:8px"><span class="tp">$</span><span class="cur"></span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="s">
+<div class="w">
+  <div class="lbl">Was du bekommst</div>
+  <h2>Die vollständige Lösung — alle Features.</h2>
+  <div class="div"></div>
+  <div class="fg"><div class="fb">
+      <h3><span class="fi">📊</span> Auto-Buchführung</h3>
+      <p>Konten-Import · KI-Kategorisierung · Belege scannen · Doppelbuchungen verhindern</p>
+    </div><div class="fb">
+      <h3><span class="fi">💰</span> Steueroptimierung</h3>
+      <p>Alle legalen Abzüge · Abschreibungsplanung · Investitionsabzugsbetrag · Verlustverrechnung</p>
+    </div><div class="fb">
+      <h3><span class="fi">📋</span> Voranmeldungen</h3>
+      <p>USt-Voranmeldung · Zusammenfassende Meldung · ELSTER-Export · Fristen-Kalender</p>
+    </div><div class="fb">
+      <h3><span class="fi">📈</span> Reports</h3>
+      <p>Gewinn & Verlust · BWA · Bilanz-Vorbereitung · Steuerprognose für's Folgejahr</p>
+    </div></div>
+</div>
+</section>
+
+<section class="bsec s">
+<div class="w">
+  <div class="lbl">Bonus-Stack</div>
+  <h2>Alles inklusive. Einmalig.</h2>
+  <div class="div"></div>
+  <div class="btot">
+    <div>
+      <div class="btl">Gesamtwert des Pakets</div>
+      <div style="font-size:13px;color:#506070;margin-top:2px">Alle Boni zusammengerechnet</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:13px;color:#506070;text-decoration:line-through">€149 lifetime</div>
+      <div class="btn">€49/mo oder €297 einmalig</div>
+      <div style="font-size:11px;color:#00D47E;margin-top:2px">Jetzt sichern</div>
+    </div>
+  </div>
+  <div class="bg"><div class="bc">
+          <div class="bn">1</div>
+          <div class="bco">
+            <h3>Steuerspar-Checkliste 2026</h3>
+            <p>47 legale Abzüge für Selbstständige & GmbH</p>
+            <div class="bv">Wert: €97</div>
+          </div>
+        </div><div class="bc">
+          <div class="bn">2</div>
+          <div class="bco">
+            <h3>Buchhaltungs-Kurs (3h Video)</h3>
+            <p>Von Null zur professionellen Buchhaltung</p>
+            <div class="bv">Wert: €147</div>
+          </div>
+        </div><div class="bc" style="border-color:rgba(240,165,0,.25);background:rgba(240,165,0,.03)">
+          <div class="bn">3</div>
+          <div class="bco">
+            <h3>ELSTER-Setup-Anleitung</h3>
+            <p>Schritt-für-Schritt digitale Steuerübermittlung</p>
+            <div class="bv">Wert: €47</div>
+          </div>
+        </div><div class="bc" style="border-color:rgba(240,165,0,.25);background:rgba(240,165,0,.03)">
+          <div class="bn">4</div>
+          <div class="bco">
+            <h3>Steuer-Strategie-Call 30 Min ⭐</h3>
+            <p>Persönliche Optimierungs-Session mit Rudolf</p>
+            <div class="bv">Wert: €150</div>
+          </div>
+        </div></div>
+</div>
+</section>
+
+<section class="s">
+<div class="w">
+  <div class="lbl">Preise</div>
+  <h2>Wähle dein Paket.</h2>
+  <div class="div"></div>
+  <div class="price-grid"><div class="price-card">
+          
+          <div class="pt">Basic</div>
+          <div class="pname">Einnahmen-Überschuss</div>
+          <div class="pold">€49/mo</div>
+          <div class="pamt">€29/mo</div>
+          <div class="pper">einmalig</div>
+          <div class="pfeats"><div class="pf"><span class="pfy">✓</span>  Auto-Buchführung</div><div class="pf"><span class="pfy">✓</span>  EÜR</div><div class="pf"><span class="pfy">✓</span>  USt-Voranmeldung</div><div class="pf"><span class="pfn">✗</span>  GmbH</div><div class="pf"><span class="pfn">✗</span>  Optimierung</div><div class="pf"><span class="pfn">✗</span>  Coaching</div></div>
+          <a href="https://buy.stripe.com/7sY5kFbrIemmcYU0Oi4F20o" class="btn-tier btn-outline">Jetzt wählen →</a>
+        </div><div class="price-card featured">
+          <div class="fbadge">⚡ BELIEBTESTE WAHL</div>
+          <div class="pt">PRO</div>
+          <div class="pname">Komplett</div>
+          <div class="pold">€149/mo</div>
+          <div class="pamt">€49/mo</div>
+          <div class="pper">einmalig</div>
+          <div class="pfeats"><div class="pf"><span class="pfy">✓</span>  Alles Basic</div><div class="pf"><span class="pfy">✓</span>  GmbH-fähig</div><div class="pf"><span class="pfy">✓</span>  Steueroptimierung</div><div class="pf"><span class="pfy">✓</span>  Bilanz-Vorbereitung</div><div class="pf"><span class="pfy">✓</span>  Strategie-Call</div><div class="pf"><span class="pfy">✓</span>  Priority Support</div></div>
+          <a href="https://buy.stripe.com/7sY5kFbrIemmcYU0Oi4F20o" class="btn-tier btn-gold">Jetzt wählen →</a>
+        </div><div class="price-card">
+          
+          <div class="pt">Lifetime</div>
+          <div class="pname">Einmalig</div>
+          <div class="pold">€597</div>
+          <div class="pamt">€297 einmalig</div>
+          <div class="pper">einmalig</div>
+          <div class="pfeats"><div class="pf"><span class="pfy">✓</span>  Alles PRO</div><div class="pf"><span class="pfy">✓</span>  Kein Abo</div><div class="pf"><span class="pfy">✓</span>  Alle Updates</div><div class="pf"><span class="pfy">✓</span>  12 Mo. Support</div><div class="pf"><span class="pfy">✓</span>  2× Strategie-Calls</div><div class="pf"><span class="pfy">✓</span>  VIP-Community</div></div>
+          <a href="https://buy.stripe.com/7sY5kFbrIemmcYU0Oi4F20o" class="btn-tier btn-outline">Jetzt wählen →</a>
+        </div></div>
+</div>
+</section>
+
+<section class="s" style="background:#0C0F12">
+<div class="w">
+  <div class="guar">
+    <div class="gi">🔒</div>
+    <h2>30-Tage Geld-zurück</h2>
+    <div class="div" style="margin:14px auto"></div>
+    <p>30 Tage SteuercockPit PRO testen. Nicht zufrieden? Vollständige Rückerstattung.</p>
+  </div>
+</div>
+</section>
+
+<section class="s">
+<div class="w">
+  <div class="lbl" style="text-align:center">FAQ</div>
+  <h2 style="text-align:center;margin-bottom:0">Alle Fragen beantwortet.</h2>
+  <div class="flist"><div class="fi">
+      <div class="fq">Bin ich Einzelunternehmer oder GmbH? <span class="fa">▼</span></div>
+      <div class="fan">Beide! Basic für EÜR, PRO und Lifetime für GmbH und Bilanz.</div>
+    </div><div class="fi">
+      <div class="fq">Ersetzt das den Steuerberater? <span class="fa">▼</span></div>
+      <div class="fan">Für die meisten Selbstständigen ja. Für komplexe GmbH-Themen: Ergänzung.</div>
+    </div><div class="fi">
+      <div class="fq">Ist die Software ELSTER-kompatibel? <span class="fa">▼</span></div>
+      <div class="fan">Ja. Export in ELSTER-kompatiblen Formaten (XML).</div>
+    </div><div class="fi">
+      <div class="fq">Sind meine Daten sicher? <span class="fa">▼</span></div>
+      <div class="fan">Ja. Alle Daten verschlüsselt, Server in Deutschland (DSGVO-konform).</div>
+    </div></div>
+</div>
+</section>
+
+<section class="fcta">
+<div class="w">
+  <div class="lbl" style="text-align:center">Jetzt starten</div>
+  <h2>Dein Business läuft morgen besser.</h2>
+  <p>Jeder Tag ohne System ist ein verlorener Tag. Andere nutzen es bereits.</p>
+  <a href="https://buy.stripe.com/7sY5kFbrIemmcYU0Oi4F20o" class="btn-p" style="display:inline-flex">JETZT €49/mo oder €297 einmalig SICHERN → <span style="font-size:12px;margin-left:4px">30-Tage Geld-zurück</span></a>
+  <div style="margin-top:14px;font-size:13px;color:#506070">
+    Fragen? <a href="https://t.me/DudiRudiBot" style="color:#F0A500;text-decoration:none">@DudiRudiBot auf Telegram</a>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="w">
+  <p>© 2026 Rudolf Sarkany · AiiteC · <a href="mailto:bullpowersrtkennels@gmail.com">bullpowersrtkennels@gmail.com</a> · <a href="https://t.me/DudiRudiBot">Telegram</a></p>
+  <p style="margin-top:6px">Alle Preise inkl. MwSt. · 30-Tage Geld-zurück · Sofort-Zugang nach Kauf</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.fq').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const i=q.parentElement,o=i.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(x=>x.classList.remove('open'));
+    if(!o)i.classList.add('open');
+  });
+});
+// counter animation
+function animNum(el,target,dur=1400){
+  const s=performance.now();
+  const u=n=>{
+    const t=Math.min((n-s)/dur,1),e=1-Math.pow(1-t,3);
+    el.textContent=(Math.round(target*e)).toLocaleString('de-DE')+(el.dataset.suf||'');
+    if(t<1)requestAnimationFrame(u);
+  };
+  requestAnimationFrame(u);
+}
+new IntersectionObserver(en=>{
+  en.forEach(e=>{if(e.isIntersecting){
+    e.target.querySelectorAll('.sn').forEach(n=>{
+      const raw=n.textContent,v=parseFloat(raw.replace(/[^0-9.]/g,''));
+      if(v&&!n.dataset.done){n.dataset.done='1';n.dataset.suf=raw.replace(/[0-9.,]/g,'').trim();animNum(n,v);};
+    });
+  }});
+},{threshold:.3}).observe(document.querySelector('.sstrip'));
+</script>
+</body>
+</html>
