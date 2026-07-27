@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopify KI Suite — Vollautomatischer Shopify-Betrieb</title>
+<meta name="description" content="Shopify KI Suite automatisiert deinen kompletten Shopify-Shop: Produkte, SEO, Beschreibungen, Collections und Preise — vollständig durch KI.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#050508;color:#c8cce0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;background:radial-gradient(ellipse 80% 60% at 50% 0%,#a855f70d 0%,transparent 70%)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#a855f712;border:1px solid #a855f733;border-radius:20px;padding:6px 16px;font-size:12px;color:#a855f7;font-family:'Menlo','Monaco','Courier New',monospace;letter-spacing:1px;margin-bottom:24px}
+.dot{width:7px;height:7px;border-radius:50%;background:#a855f7;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(168,85,247,.5)}50%{opacity:.8;box-shadow:0 0 0 8px rgba(168,85,247,0)}}
+h1{font-family:'Menlo','Monaco','Courier New',monospace;font-size:clamp(28px,5vw,56px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px}
+h1 span{color:#a855f7}
+.sub{font-size:clamp(14px,2vw,18px);color:#7880a0;max-width:560px;margin:0 auto 40px}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-main{background:#a855f7;color:#fff;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;display:inline-block;transition:.15s}
+.btn-main:hover{background:#b970f8;transform:translateY(-1px)}
+.btn-sec{background:transparent;color:#a855f7;padding:16px 32px;border-radius:8px;font-weight:600;font-size:16px;border:1px solid #a855f744;display:inline-block;transition:.15s}
+.stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;align-items:center}
+.stat-n{font-family:'Menlo','Monaco','Courier New',monospace;font-size:36px;font-weight:700;color:#f5c842}
+.stat-l{font-size:11px;color:#50547a;text-transform:uppercase;letter-spacing:1px}
+section{padding:80px 24px;max-width:1000px;margin:0 auto}
+.tag{font-family:'Menlo','Monaco','Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#a855f7;margin-bottom:12px}
+h2{font-size:clamp(22px,4vw,36px);font-weight:700;color:#fff;margin-bottom:16px}
+.lead{color:#7880a0;font-size:16px;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:#0d0d18;border:1px solid #1e1e38;border-radius:10px;padding:22px;transition:.15s}
+.card:hover{border-color:#2a2a55}
+.ci{font-size:26px;margin-bottom:10px}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px}
+.card p{font-size:12px;color:#7880a0;line-height:1.6}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:700px;margin:0 auto}
+.plan{background:#0d0d18;border:1px solid #1e1e38;border-radius:12px;padding:28px;text-align:center}
+.plan.pop{border-color:#a855f744;background:#100d1a}
+.pn{font-size:13px;color:#7880a0;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-family:'Menlo','Monaco','Courier New',monospace}
+.pp{font-family:'Menlo','Monaco','Courier New',monospace;font-size:44px;font-weight:700;color:#f5c842;line-height:1}
+.pp span{font-size:18px;color:#7880a0}
+.pperiod{font-size:12px;color:#50547a;margin-bottom:20px}
+.pf{list-style:none;text-align:left;margin-bottom:24px}
+.pf li{padding:7px 0;border-bottom:1px solid #1e1e38;font-size:12px;color:#c8cce0;display:flex;gap:6px;align-items:center}
+.pf li::before{content:'✓';color:#a855f7;font-weight:700;flex-shrink:0}
+.pbtn{display:block;width:100%;padding:13px;border-radius:8px;font-weight:700;font-size:14px;text-align:center;border:none;cursor:pointer;transition:.15s}
+.pbtn.purple{background:#a855f7;color:#fff}
+.pbtn.purple:hover{background:#b970f8}
+.pbtn.out{background:transparent;border:1px solid #a855f744;color:#a855f7}
+footer{background:#07070f;border-top:1px solid #1e1e38;padding:32px 24px;text-align:center;color:#50547a;font-size:13px}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="badge"><span class="dot"></span> SHOPIFY KI SUITE — VOLLAUTOMATISCH</div>
+  <h1>Shopify auf<br><span>KI-Autopilot.</span></h1>
+  <p class="sub">4.630 Produkte, KI-SEO, Auto-Fulfillment, Smart Collections — dein Shopify-Shop arbeitet für dich, rund um die Uhr.</p>
+  <div class="cta-row">
+    <a href="https://shopify-acquisition-production.up.railway.app/billing/checkout" class="btn-main">Pro starten — €99/mo</a>
+    <a href="#pricing" class="btn-sec">Alle Pläne</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="stat-n">4.630</span><span class="stat-l">Produkte</span></div>
+    <div class="stat"><span class="stat-n">1.200</span><span class="stat-l">SEO/Tag</span></div>
+    <div class="stat"><span class="stat-n">500</span><span class="stat-l">Index-URLs/3h</span></div>
+    <div class="stat"><span class="stat-n">30min</span><span class="stat-l">Sync-Intervall</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="tag">▸ Was die KI Suite macht</div>
+  <h2>Dein Shopify-Shop<br>läuft sich selbst.</h2>
+  <p class="lead">Von Produkt-Import bis SEO-Optimierung — alles automatisch, alles KI-gestützt.</p>
+  <div class="grid">
+    <div class="card"><div class="ci">🛒</div><h3>Produkt-Import Auto</h3><p>iNeedit, AliExpress, Alibaba — echte Smart-Home Produkte werden automatisch importiert, geprüft und veröffentlicht.</p></div>
+    <div class="card"><div class="ci">🔍</div><h3>AI-SEO Scaler</h3><p>Titel, Meta-Description, Body-Text und Tags werden durch KI alle 6h optimiert. 1.200 Produkte/Tag.</p></div>
+    <div class="card"><div class="ci">📦</div><h3>Smart Collections</h3><p>Automatische Kategorisierung nach Nische, Vendor, Tags. Smart Collections updaten sich selbst in Echtzeit.</p></div>
+    <div class="card"><div class="ci">💰</div><h3>Dynamic Pricing</h3><p>Preise werden alle 4h anhand von Marktdaten, Lagerbestand und Konkurrenz automatisch angepasst.</p></div>
+    <div class="card"><div class="ci">🚀</div><h3>IndexNow Turbo</h3><p>500 URLs werden alle 3h zu Bing + Yandex geschickt. Neue Produkte sind innerhalb Stunden indexiert.</p></div>
+    <div class="card"><div class="ci">🛡️</div><h3>Product Gatekeeper</h3><p>Kein Fake-Produkt, kein Billigschrott. Qualitätsgatekeeper prüft jeden Import: Vendor, Nische, Preis, Qualität.</p></div>
+  </div>
+</section>
+
+<section id="pricing" style="text-align:center">
+  <div class="tag">▸ Preise</div>
+  <h2>Shopify-Automation<br>für jeden.</h2>
+  <div class="pricing">
+    <div class="plan">
+      <div class="pn">Starter</div>
+      <div class="pp">€49<span>/mo</span></div>
+      <div class="pperiod">Monatlich kündbar</div>
+      <ul class="pf">
+        <li>Produkt-Import Auto</li>
+        <li>AI-SEO (100/Tag)</li>
+        <li>Smart Collections</li>
+        <li>GMC Feed</li>
+        <li>Gatekeeper</li>
+      </ul>
+      <a href="https://shopify-acquisition-production.up.railway.app/billing/checkout?plan=starter" class="pbtn out">Starter wählen</a>
+    </div>
+    <div class="plan pop">
+      <div class="pn">Pro ★</div>
+      <div class="pp">€99<span>/mo</span></div>
+      <div class="pperiod">Monatlich kündbar</div>
+      <ul class="pf">
+        <li>Alles aus Starter</li>
+        <li>AI-SEO (1.200/Tag)</li>
+        <li>Dynamic Pricing</li>
+        <li>IndexNow 500 URLs</li>
+        <li>Priority KI</li>
+      </ul>
+      <a href="https://shopify-acquisition-production.up.railway.app/billing/checkout?plan=pro" class="pbtn purple">Pro starten</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Shopify KI Suite — by AIITEC / BullPower</p>
+  <p style="margin-top:4px">© 2026 | <a href="mailto:aiitecbuuss@gmail.com" style="color:#a855f7">aiitecbuuss@gmail.com</a></p>
+</footer>
+</body>
+</html>
